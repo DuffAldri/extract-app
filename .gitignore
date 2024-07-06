@@ -1,0 +1,6 @@
+# models
+models/load_models/bert_best_model.pth
+models/load_models/cc.en.300.bin
+
+# all uploaded files
+uploads/

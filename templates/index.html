@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EXTRACT</title>
+
+    <!-- CSS Import -->
+    <link href="/assets/index.css" rel="stylesheet" />
+
+    <!-- Import Poppins Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS Import -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md fixed-top text-white">
+        <div class="container-fluid col-xxl-9 px-4 mx-auto ">
+            <div class="navbar-brand">
+                <h2 class="fw-bolder text-white" id="logo">EXTRACT</h2>
+            </div>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">   
+                    <i class="fas fa-bars" style="color:#fff; font-size:28px;"></i>
+                </span>
+            </button>
+
+            <div class="collapse navbar-collapse align-items-center justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-2 mb-lg-0 ">
+                    <li class="nav-item pe-3 fw-semibold">
+                        <a href="#hero-section" class="nav-link active text-white">Beranda</a>
+                    </li>
+                    <li class="nav-item pe-3 fw-semibold">
+                        <a href="#tentang-section" class="nav-link active text-white">Tentang</a>
+                    </li>
+                    <li class="nav-item pe-3 fw-semibold">
+                        <a href="#kontributor-section" class="nav-link active text-white">Kontributor</a>
+                    </li>
+                    <li class="nav-item h-4">
+                        <button type="button" id="nav-ekstraksi"class="btn btn-outline-primary nav-button rounded-pill px-4 py-2 fw-semibold text-white" onclick="document.getElementById('ekstraksi-section').scrollIntoView({ behavior: 'smooth' });">
+                            Ekstraksi
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero-section" class="hero-bg">
+        <div class="container col-xxl-9 px-4 py-5 ">
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                <div class="col-10 col-sm-8 col-lg-5 justify-content mx-auto ">
+                    <img src="assets/public/external/computer.svg" class="d-block mx-lg-auto img-fluid" alt="Illustration" width="700" height="500" loading="lazy">
+                </div>
+                <div class="col">
+                    <h1 class="fw-semibold lh-1 mb-3 text-white">
+                        Ekstraksi Ulasan Pengguna Kepada Kebutuhan Non-Fungsional
+                    </h1>
+                    <p class="lead text-white">
+                        Temukan kategori kebutuhan non-fungsional pada ulasan pengguna dengan mudah
+                    </p>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                        <button type="button" class="btn btn-primary rounded-pill btn-lg px-4 me-md-2 bg-light-purple" onclick="document.getElementById('ekstraksi-section').scrollIntoView({ behavior: 'smooth' });">Mulai Ekstraksi</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logo section -->
+    <section id="logo-section" class="bg-gray">
+        <div class="container col-xxl-9 px-4 py-5">
+            <div class="row flex-md-row align-items-center logo-img">
+                <div class="mb-5 mb-lg-0 col-md-6 col-lg-3 d-flex justify-content-center align-items-center">
+                    <img
+                      src="assets/public/external/advhumblue1592-fmo8-500w.png"
+                      alt="advhumblue1592"
+                        />
+                </div>
+                <div class="mb-5 mb-lg-0 col-md-6 col-lg-3 d-flex justify-content-center align-items-center">
+                    <img
+                      src="assets/public/external/if.png"
+                      alt="advhumblue1592"
+                        />
+                </div>
+                <div class="mb-5 mb-md-0 mb-lg-0 col-md-6 col-lg-3 d-flex justify-content-center align-items-center">
+                    <img
+                      src="assets/public/external/se.png"
+                      alt="advhumblue1592"
+                        />
+                </div>
+                <div class="col-md-6 col-lg-3 d-flex justify-content-center align-items-center">
+                    <img
+                      src="assets/public/external/km.png"
+                      alt="advhumblue1592"
+                        />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tentang Section -->
+    <section id="tentang-section">
+        <div style="height: 72px;"></div>
+        <div class="container col-xxl-9 px-4 py-5 col justify-content-center">
+            <h2 class="fw-bold lh-1 text-center">TENTANG EXTRACT</h2>
+            <div class="underline-custom mb-3"></div>
+            <p >EXTRACT adalah aplikasi web yang dirancang untuk membantu pengguna mengidentifikasi kebutuhan non-fungsional dari ulasan pengguna. Dengan menggabungkan teknik penambangan teks dan pembelajaran mesin yang canggih, EXTRACT memberikan analisis yang mendalam dan akurat.</p>
+        </div>
+    </section>
+
+    <!-- Model Section -->
+    <section id="model-section" class="bg-gray">
+        <div class="container col-xxl-9 px-4 py-5 col justify-content-center">
+            <h2 class="lh-1"><span class="fw-bold">Model</span> dalam ekstraksi ulasan</h2>
+            <p>Menerapkan kombinasi teknik text mining dengan pembelajaran yang canggih</p>
+
+            <div class="accordion" id="model-accordion">
+                <div class="accordion-item">
+                    <button class="accordion-button gap-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <h5 class="accordion-header text-blue fw-bold">
+                            01
+                        </h5>
+                        <h5 class="accordion-header fw-semibold">
+                            Model Ensemble
+                        </h5>
+                    </button>
+                  <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#model-accordion">
+                    <div class="accordion-body">
+                        <p>
+                            <strong>Description:</strong> Model ensemble adalah teknik
+                            dalam pembelajaran mesin yang menggabungkan beberapa model
+                            untuk meningkatkan akurasi prediksi. Dengan menggabungkan
+                            hasil dari berbagai model, ensemble dapat mengurangi kesalahan
+                            dan meningkatkan performa dibandingkan menggunakan satu model
+                            tunggal.
+                        </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-button collapsed col gap-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <h5 class="accordion-header text-blue fw-bold">
+                            02
+                        </h5>
+                        <h5 class="accordion-header fw-semibold">
+                            Model Fine-Tuned BERT
+                        </h5>
+                    </button>
+                  <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#model-accordion">
+                    <div class="accordion-body">
+                        <p>
+                            <strong>Description:</strong> BERT adalah pre-training model
+                            yang dibuat dengan menggunakan Transformer yang bekerja secara
+                            2 arah. Hal tersebut menyebabkan model dapat mempelajari
+                            konteks dari suatu teks secara mendalam. Fine-tuning dilakukan
+                            terhadap model BERT sehingga model dapat mengekstrak NFR dari
+                            ulasan pengguna.
+                        </p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ekstraksi section -->
+    <section id="ekstraksi-section">
+        <div style="height: 72px;"></div>
+        <div class="container col-xxl-9 px-4 py-5 col justify-content-center">
+            <h2 class="fw-bold lh-1  text-center">Ekstraksi</h2>
+            <div class="underline-custom mb-3"></div>
+            <p class="text-center">Ekstraksi kebutuhan non fungsional pada ulasan pengguna dapat dilakukan dengan model DUP dan FAKHRI </p>            
+
+            <div class="row flex-md-col gap-5">
+                <div class="card row col-lg">
+                    <div class="card-body">
+                        <h4 class="mt-3 mb-4 fw-semibold">Panduan Aplikasi</h4>
+                        <ul class="gap-2">
+                            <li class="align-items-center row mb-3">
+                                <div class="col-1 step-list">
+                                    <h5 class="text-white text-center">1</h5>
+                                </div>
+                                <div class="col ms-2">
+                                    <h5 class="ms-1">Unduh File Template Ekstraksi</h5>
+                                    <p class="ms-1">Unduh file template yang telah disediakan dalam format .xlsx sebagai acuan pengisian</p>
+                                </div>
+                            </li>
+                            <li class="align-items-center row mb-3">
+                                <div class="col-1 step-list">
+                                    <h5 class="text-white text-center">2</h5>
+                                </div>
+                                <div class="col ms-2">
+                                    <h5 class="ms-1">Isi File Template Ekstraksi</h5>
+                                    <p class="ms-1">Jangan mengubah selain kolom yang tersedia untuk menghindari error!</p>
+                                </div>
+                            </li>
+                            <li class="align-items-center row mb-3">
+                                <div class="col-1 step-list">
+                                    <h5 class="text-white text-center">3</h5>
+                                </div>
+                                <div class="col ms-2">
+                                    <h5 class="ms-1">Unggah Template yang Telah Terisi</h5>
+                                    <p class="ms-1">File yang diterima hanya file yang telah diisi dan memiliki format .xls atau .xlsx</p>
+                                </div>
+                            </li>
+                            <li class="align-items-center row mb-3">
+                                <div class="col-1 step-list">
+                                    <h5 class="text-white text-center">4</h5>
+                                </div>
+                                <div class="col ms-2">
+                                    <h5 class="ms-1">Pilih Metode Pengekstraksian</h5>
+                                    <p class="ms-1">Pilih metode yang diinginkan untuk melakukan proses ekstraksi</p>
+                                </div>
+                            </li>
+                            <li class="align-items-center row mb-3">
+                                <div class="col-1 step-list">
+                                    <h5 class="text-white text-center">5</h5>
+                                </div>
+                                <div class="col ms-2">
+                                    <h5 class="ms-1">Lihat Hasil Ekstraksi</h5>
+                                    <p class="ms-1">Lihat hasil ekstraksi yang telah dilakukan dan pastikan datanya benar</p>
+                                </div>
+                            </li>
+                            <li class="align-items-center row mb-3">
+                                <div class="col-1 step-list">
+                                    <h5 class="text-white text-center">6</h5>
+                                </div>
+                                <div class="col ms-2">
+                                    <h5 class="ms-1">Unduh Hasil Ekstraksi</h5>
+                                    <p class="ms-1">Unduh hasil ekstraksi dalam format yang diinginkan untuk keperluan lebih lanjut</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="card col row col-lg">
+                    <div class="card-body">
+                        <div>
+                            <h4 class="mt-3 mb-2 fw-semibold">Informasi Terkait</h4>
+                            <p>Silakan baca dengan teliti dan seksama</p>
+                        </div>
+                        <div class="p-3 bg-light-blue">
+                            <h6 class="fw-semibold">Harap Diperhatikan!</h6>
+                            <ul>
+                                <li>Hasil yang diberikan bersifat prediktif dan tidak 100% benar.</li>
+                                <li>Pastikan semua data yang diunggah telah terisi dengan benar untuk hasil yang optimal.</li>
+                                <li>Data ulasan aplikasi yang akan diekstrak adalah data ulasan berbahasa Inggris.</li>
+                                <li>Apabila terdapat kesalahan, harap diperbaiki sebelum melanjutkan.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="mt-4 mb-2 fw-semibold">Unduh File Template Ekstraksi</h4>
+                            <p>Silahkan unduh file template untuk pendeteksian berikut.</p>
+                            <a href="/assets/example/extract_format.xlsx">
+                                <button type="button" class="btn btn-primary rounded-pill btn-lg px-4 bg-blue w-100">
+                                    <img
+                                      src="assets/public/external/assignmentreturned7422-u7fd.svg"
+                                      alt="assignmentreturned7422"
+                                      class="nlp-assignmentreturned"
+                                    />
+                                    Unduh Template
+                                </button>
+                            </a>
+                        </div>
+                        <form
+                          action="{{ url_for('prediction.predict') }}"
+                          method="post"
+                          enctype="multipart/form-data"
+                          id="file-upload-form"
+                        >
+                            <div>
+                                <h4 class="mt-4 mb-2 fw-semibold">Unggah File Ekstraksi</h4>
+                                <p>Silahkan unggah file template yang telah terisi dengan daftar kebutuhan fungsional yang akan diekstraksi</p>
+                                <div class="w-100 py-3 " id="upload-area">
+                                    <i class="fas fa-cloud-upload-alt mb-3" style="font-size:64px; color: var(--black);"></i>
+                                    <h4 id="drag-drop-text">Drag and Drop File Here</h4>
+                                    <h5>Or</h5>
+                                    <button class="btn btn-primary bg-blue mb-2" id="choose-file-button" type="button">Choose File</button>
+                                    <div class="d-inline-block gap-2" id="filename-div" >
+                                        <p class="mb-0"></p>
+                                        <a href="">
+                                            <i class="fa-solid fa-xmark color-red"></i>
+                                        </a>
+                                    </div>
+                                    <input type="file" id="file-input" name="file" style="display: none">
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <h4 class="mt-4 mb-2 fw-semibold">Pilih Algoritma</h4>
+                                <p>Silahkan pilih algoritma yang akan digunakan untuk prediksi.</p>
+                                <div class="row mx-1 gap-2">
+                                    <button 
+                                    type="submit"
+                                    name="algorithm"
+                                    value="ensemble"
+                                    class="btn btn-primary rounded-pill btn-lg px-4 bg-blue col submit-button">
+                                        Ensemble
+                                    </button>
+                                    <button 
+                                    type="submit"
+                                    name="algorithm"
+                                    value="bert"
+                                    type="button" 
+                                    class="btn btn-primary rounded-pill btn-lg px-4 bg-blue col submit-button">
+                                        Fine-Tuned BERT
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontributor section -->
+    <section id="kontributor-section" class="bg-gray">
+        <div style="height: 72px;"></div>
+        <div class="container col-xxl-9 px-4 py-5 col justify-content-center">
+            <div class="row">
+                <h2 class="fw-bold lh-1  text-center">Kontributor</h2>
+                <div>
+                    <div class="underline-custom mb-3"></div>
+                </div>
+                <p class="text-center">Mahasiswa dan dosen pembimbing yang berpartisipasi dalam pengembangan aplikasi website EXTRACT</p>            
+            </div>
+            <div class="row">
+                <div class="col-md-6 pb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5>Moh. Ilham Fakhri Zamzami</h5>
+                            <p>NRP 5025201275</p>
+                            <div class="line"></div>
+                            <h5>Judul Tugas Akhir</h5>
+                            <p>Ekstraksi Kebutuhan Nonfungsional ke Atribut Kualitas Perangkat Lunak Menggunakan Model Ensemble</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 pb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5>Muhammad Daffa Aldriantama</h5>
+                            <p>NRP 5025201177</p>
+                            <div class="line"></div>
+                            <h5>Judul Tugas Akhir</h5>
+                            <p>Ekstraksi Kebutuhan Nonfungsional Ke Atribut Kualitas Perangkat Lunak Menggunakan Pendekatan Pembelajaran Mesin</p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 pb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5>Sarwosri, S.Kom. M.T</h5>
+                            <p>NIP 1976080920011220</p>
+                            <div class="line"></div>
+                            <h5>Dosen Pembimbing</h5>
+                            <p>Rumpun Mata Kuliah Rekayasa Perangkat Lunak</p>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 pb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5>Muhammad Daffa Aldriantama</h5>
+                            <p>NIP 196810021994032001</p>
+                            <div class="line"></div>
+                            <h5>Dosen Ko-Pembimbing</h5>
+                            <p>Rumpun Mata Kuliah Rekayasa Perangkat Lunak</p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>           
+        </div>
+    </section>
+
+    <footer>
+        <div class="container col-xxl-9 px-4 py-4">          
+            <div class="row">
+                <p class="text-white m-0">Copyright 2024 <span class="fw-bold">EXTRACT</span>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/js/index.js"></script>
+    <script src="assets/js/file_upload.js"></script>
+    <!-- Font Awesome Icon Import -->
+    <script src="https://kit.fontawesome.com/1aeb993afb.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS Import -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>

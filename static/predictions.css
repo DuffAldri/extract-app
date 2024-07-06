@@ -1,0 +1,48 @@
+:root {
+    --black: #000000;
+    --white: #FFFFFF;
+    --purple: #160B57 !important;
+    --light-purple: #4B3E96;
+    --light-purple-hover: #403484;
+    --blue: #48B1E2;
+    --dark-blue: #1b7aa5;
+    --light-blue: #CFF4FC;
+    --cyan: #43E8E1;
+    --green-background: #e8ffe1;
+    --green: #198754;
+    --red-background: #ffcdd2;
+    --dark-red: #9b2430;
+    --red: #DC3545;
+    --light-gray: #C4C4C4;
+    --gray: #666666;
+    --gray-background: #F3F5FA;
+}
+
+body {
+    font-family: 'Poppins', sans-serif !important;
+}
+
+.review-column {
+    min-width: 250px !important;
+}
+
+.paginate_button {
+    font-size: medium;
+}
+
+.card {
+    box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.25) ;
+    border-color: var(--blue);
+    border-style: solid;
+    border-width: 2px 0;
+    background-color: var(--white);
+    border-radius: 0;
+}
+
+.text-white {
+    color: var(--white) !important;
+}
+
+.bg-purple {
+    background-color: var(--purple) !important;
+} 
