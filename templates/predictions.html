@@ -272,7 +272,7 @@
                 { data: "Predictions", title: "Predictions" },
               ];
 
-              console.log(Object.keys(data[0]));
+              // console.log(Object.keys(data[0]));
 
               // Dynamically add columns for one-hot encoded labels
               if (data.length > 0) {
@@ -314,6 +314,10 @@
                   {
                     targets: [0],
                     className: "dt-justify review-column",
+                  },
+                  {
+                    targets: [1],
+                    visible: false,  // Menyembunyikan kolom dengan target [1]
                   },
                   {
                     targets: "_all",
@@ -390,11 +394,12 @@
                   activeFilters.push(selectedLabel);
                 }
 
-                // table.columns().search("").draw(); // Reset all filters
                 // table
                 //   .column(":contains(" + selectedLabel + ")")
                 //   .search("✓")
                 //   .draw();
+                
+                table.columns().search("").draw(); // Reset all filters
 
                 // Apply search for each active filter
                 activeFilters.forEach(function (filter) {

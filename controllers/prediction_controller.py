@@ -38,7 +38,9 @@ def predict():
                 df = pd.read_excel(filepath)
             except Exception as e:
                 return jsonify({'error': 'Gagal membaca file excel'}), 400
-
+            
+            algorithm = request.form['algorithm']
+            
             # df = pd.read_excel(filepath)
             if 'review' not in df.columns:
                 return jsonify({'error': "Kolom 'review' gagal ditemukan. Periksa kembali template!"}), 400
@@ -47,12 +49,11 @@ def predict():
                 return jsonify({'error': "Kolom 'review' kosong. Periksa kembali file yang diupload!"}), 400
             
             try:
-
-                texts = df['review'].apply(lambda x: preprocess_text(x, "bert")).tolist()
+                
+                texts = df['review'].apply(lambda x: preprocess_text(x, algorithm)).tolist()
             except Exception as e:
                 return jsonify({'error': 'Gagal melakukan praproses teks'}), 400
-            
-            algorithm = request.form['algorithm']
+
             if algorithm == 'bert':
                 if bert_model is None or tokenizer is None:
                     return jsonify({'error': 'Gagal memuat model dan tokenizer BERT'}), 400

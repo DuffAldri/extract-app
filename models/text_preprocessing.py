@@ -28,8 +28,8 @@ def preprocess_text(text, type="default"):
         text = re.sub(r'(.)\1+', r'\1\1', text)
         # Remove non-alphanumeric characters (except spaces)
         text = re.sub(r'[^a-zA-Z\s]', '', text)
+        return text
 
-        
     else:
         text = text.lower()
         # text = re.sub(r'\d+', '', text)
@@ -40,7 +40,7 @@ def preprocess_text(text, type="default"):
         text = re.sub(r'[^\w\s]', '', text)
         tokens = text.split()
         tokens = [word for word in tokens if word not in stop_words]
-    return ' '.join(tokens)
+        return ' '.join(tokens)
 
 def get_embeddings(texts, model):
     if model:
