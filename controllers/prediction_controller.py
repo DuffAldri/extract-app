@@ -47,7 +47,8 @@ def predict():
                 return jsonify({'error': "Kolom 'review' kosong. Periksa kembali file yang diupload!"}), 400
             
             try:
-                texts = df['review'].apply(preprocess_text).tolist()
+
+                texts = df['review'].apply(lambda x: preprocess_text(x, "bert")).tolist()
             except Exception as e:
                 return jsonify({'error': 'Gagal melakukan praproses teks'}), 400
             
