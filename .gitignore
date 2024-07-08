@@ -4,3 +4,7 @@ models/load_models/cc.en.300.bin
 
 # all uploaded files
 uploads/
+
+_pycache_
+models/_pycache_/
+controllers/_pycache_/
