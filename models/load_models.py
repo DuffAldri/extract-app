@@ -1,7 +1,7 @@
 import joblib
 import fasttext
 import torch
-from transformers import BertTokenizer, BertForSequenceClassification, AutoModelForSequenceClassification
+from transformers import DistilBertTokenizer, BertForSequenceClassification, AutoModelForSequenceClassification
 
 try:
     ensemble_model = joblib.load('models/load_models/ensemble_model.pkl')
@@ -30,10 +30,10 @@ except Exception as e:
 try:
     bert_model = AutoModelForSequenceClassification.from_pretrained(
         'distilbert-base-uncased',
-        num_labels=4  # Ensure this matches the number of output labels the model was trained on
+        num_labels=5  # Ensure this matches the number of output labels the model was trained on
     )
     bert_model.load_state_dict(torch.load('models/load_models/bert_best_model.pth', map_location=torch.device('cpu')))
-    tokenizer = BertTokenizer.from_pretrained('distilbert-base-uncased')
+    tokenizer = DistilBertTokenizer.from_pretrained('distilbert-base-uncased')
     bert_model.eval()  # Set the model to evaluation mode
     print("BERT model and tokenizer loaded successfully.")
 except Exception as e:
