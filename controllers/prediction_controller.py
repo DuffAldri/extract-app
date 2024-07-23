@@ -6,10 +6,12 @@ import numpy as np
 import torch
 import uuid
 from datetime import datetime
-from models import preprocess_text, get_embeddings, preprocess_for_bert, ensemble_model, fasttext_model, bert_model, tokenizer, mlb
+from models import preprocess_text, get_embeddings, preprocess_for_bert, ensemble_model, fasttext_model, bert_model, tokenizer
 from models.bert_prediction import predict_with_model
+from sklearn.preprocessing import MultiLabelBinarizer
 
 prediction_bp = Blueprint('prediction', __name__)
+mlb = MultiLabelBinarizer()
 
 def generate_unique_filename(filename):
     ext = filename.split('.')[-1]
@@ -58,7 +60,7 @@ def predict():
                 if bert_model is None or tokenizer is None:
                     return jsonify({'error': 'Gagal memuat model dan tokenizer BERT'}), 400
                 try:
-                    predictions = predict_with_model(texts, tokenizer, bert_model, device='cpu', threshold=0.5)
+                    predictions = predict_with_model(texts, tokenizer, bert_model, device='cpu', threshold=0.35)
                 except Exception as e:
                     return jsonify({'error': 'Gagal melakukan prediksi dengan BERT'}), 400
             else:
