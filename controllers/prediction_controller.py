@@ -82,21 +82,19 @@ def predict():
                 predictions = model.predict(embeddings)
 
 
+            label_columns = ["Dependability", "Performance", "Supportability", "Usability", "Missing"]
             if algorithm != 'bert':
-                predictions = predictions.reshape(-1, mlb.classes_.shape[0])
+                predictions = predictions.reshape(-1, label_columns.shape[0])
 
-            predicted_labels = mlb.inverse_transform(predictions)
-            df['Predictions'] = [', '.join(labels) for labels in predicted_labels]
+            # predicted_labels = mlb.inverse_transform(predictions)
+            one_hot_labels = np.array(predictions)
 
-            one_hot_labels = mlb.transform(predicted_labels)
-            
             total_reviews = int(len(df))
             total_labels = int(one_hot_labels.sum().sum())
             single_labeled_reviews = int((one_hot_labels.sum(axis=1) == 1).sum())
             multi_labeled_reviews = int((one_hot_labels.sum(axis=1) > 1).sum())
 
             one_hot_labels_display = np.where(one_hot_labels == 1, '✓', '')
-            label_columns = mlb.classes_
             one_hot_df_display = pd.DataFrame(one_hot_labels_display, columns=label_columns)
             result_df = pd.concat([df, one_hot_df_display], axis=1)
 
