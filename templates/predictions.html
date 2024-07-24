@@ -288,7 +288,7 @@
                 console.log($(columns));
                 columns.forEach(function (column) {
                   if (column.data !== "review") {
-                    temp = columns.title;
+                    temp = column.title;
                     // columns.push({ data: key, title: temp });
 
                     // Add buttons to filter buttons div
@@ -314,10 +314,6 @@
                   {
                     targets: [0],
                     className: "dt-justify review-column",
-                  },
-                  {
-                    targets: [1],
-                    visible: false,  // Menyembunyikan kolom dengan target [1]
                   },
                   {
                     targets: "_all",
