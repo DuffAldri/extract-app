@@ -276,31 +276,28 @@
 
               // Dynamically add columns for one-hot encoded labels
               if (data.length > 0) {
-                let keys = Object.keys(data[0]);
-                console.log($(keys));
-                keys.forEach(function (key) {
-                  if (key !== "review" && key !== "Predictions") {
-                    temp = "";
-                    if (key == "Dep") {
-                      temp = "Dependability";
-                    } else if (key == "Per") {
-                      temp = "Performance";
-                    } else if (key == "Sup") {
-                      temp = "Supportablity";
-                    } else if (key == "Usa") {
-                      temp = "Usability";
-                    } else if (key == "Mis") {
-                      temp = "Missing";
-                    }
-                    columns.push({ data: key, title: temp });
+                columns.push(
+                  { data: "Dep", title: "Dependability" },
+                  { data: "Per", title: "Performance" },
+                  { data: "Sup", title: "Supportablity" },
+                  { data: "Usa", title: "Usability" },
+                  { data: "Mis", title: "Missing" }
+                );
+
+                // let keys = Object.keys(data[0]);
+                console.log($(columns));
+                columns.forEach(function (column) {
+                  if (column.data !== "review") {
+                    temp = columns.title;
+                    // columns.push({ data: key, title: temp });
 
                     // Add buttons to filter buttons div
                     $("#labelFilterButtons").append(
                       '<button class="btn btn-outline-primary filter-btn" id="' +
-                        key +
+                        column.data +
                         "-filter-btn" +
                         '" data-label="' +
-                        key +
+                        column.data +
                         '">' +
                         temp +
                         "</button>"
