@@ -277,6 +277,7 @@
               // Dynamically add columns for one-hot encoded labels
               if (data.length > 0) {
                 let keys = Object.keys(data[0]);
+                console.log($(keys));
                 keys.forEach(function (key) {
                   if (key !== "review" && key !== "Predictions") {
                     temp = "";
