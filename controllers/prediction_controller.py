@@ -8,10 +8,8 @@ import uuid
 from datetime import datetime
 from models import preprocess_text, get_embeddings, preprocess_for_bert, ensemble_model, fasttext_model, bert_model, tokenizer
 from models.bert_prediction import predict_with_model
-from sklearn.preprocessing import MultiLabelBinarizer
 
 prediction_bp = Blueprint('prediction', __name__)
-mlb = MultiLabelBinarizer()
 
 def generate_unique_filename(filename):
     ext = filename.split('.')[-1]
@@ -82,7 +80,7 @@ def predict():
                 predictions = model.predict(embeddings)
 
 
-            label_columns = ["Dependability", "Performance", "Supportability", "Usability", "Missing"]
+            label_columns = ["Dep", "Per", "Sup", "Usa", "Mis"]
             if algorithm != 'bert':
                 predictions = predictions.reshape(-1, label_columns.shape[0])
 
