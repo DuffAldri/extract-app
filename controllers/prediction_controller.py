@@ -82,7 +82,7 @@ def predict():
 
             label_columns = ["Dep", "Per", "Sup", "Usa", "Mis"]
             if algorithm != 'bert':
-                predictions = predictions.reshape(-1, len(label_columns))
+                # predictions = predictions.reshape(-1, len(label_columns))
                 return jsonify({"error": predictions.tolist()})
 
 
