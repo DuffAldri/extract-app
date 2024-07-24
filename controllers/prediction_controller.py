@@ -83,7 +83,7 @@ def predict():
             label_columns = ["Dep", "Per", "Sup", "Usa", "Mis"]
             if algorithm != 'bert':
                 # predictions = predictions.reshape(-1, len(label_columns))
-                return jsonify({"error": predictions.tolist()})
+                return jsonify({"error": predictions.tolist()}), 400
 
 
             # predicted_labels = mlb.inverse_transform(predictions)
