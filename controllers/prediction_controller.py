@@ -79,10 +79,11 @@ def predict():
                     return jsonify({'error': 'Gagal memuat model Fakhri'}), 400
                 predictions = model.predict(embeddings)
 
-
-            label_columns = ["Dep", "Per", "Sup", "Usa", "Mis"]
             if algorithm != 'bert':
+                label_columns = ["Dep", "Mis", "Per", "Sup", "Usa"]
                 predictions = predictions.reshape(-1, len(label_columns))
+            else:
+                label_columns = ["Dep", "Per", "Sup", "Usa", "Mis"]
 
 
             # predicted_labels = mlb.inverse_transform(predictions)
